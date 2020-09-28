@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Political Compass Project</title>
+        <link rel='shortcut icon' type='image/x-icon' href='icon.ico' />
+    </head>
+
+
+
+    <style>
+
+        @font-face
+        {
+                font-family: "Lora";
+                src: url('Lora-Regular.ttf'),
+                url('Lora-Regular.ttf'); /* IE */
+        }
+        @font-face
+        {
+            font-family: "Lato";
+            src: url('Lato-Regular.ttf'),
+            url('Lato-Regular.ttf'); /* IE */
+        }
+        @font-face
+        {
+            font-family: "Opensans";
+            src: url('OpenSans-Regular.ttf'),
+            url('OpenSans-Regular.ttf'); /* IE */
+        }
+        @font-face
+        {
+            font-family: "Raleway";
+            src: url('Raleway-Regular.ttf'),
+            url('Raleway-Regular.ttf'); /* IE */
+        }
+        @font-face
+        {
+            font-family: "Slabo";
+            src: url('Slabo27px-Regular.ttf'),
+            url('Slabo27px-Regular.ttf'); /* IE */
+        }
+
+
+        body {
+            background-image: url("stardust.png");
+        }
+        #main {
+            background-image: url("greyzz.png");
+            margin: auto;
+            height: 95%;
+            width: 130vh;
+            border-radius: 7px;
+            box-shadow: 8px 10px 4px #262626;
+        }
+
+        h4 {
+            font-size: 15px;
+            font-family: Opensans;
+            margin-left: 20px;
+            padding-top: 10px;
+        }
+
+        .questions {
+            margin-left: 40px;
+            font-family: "Raleway";
+            padding-bottom: 15px;
+        }
+
+        #submit{
+            margin-top: 20px;
+            margin-left: 50px;
+            font-size: 20px;
+            font-family: "Lato";
+        }
+        #marxism{
+            text-decoration: underline;
+            color: dodgerblue;
+        }
+
+        #marxism:hover{
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+    </style>
+
+    <body>
+        <div id="main">
+            <!-- You already knows what goes here. !-->
+           <h4> We will now run you through three pages of questions, each with their own theme. This one judges your governing standpoint</h4>
+
+        <div class="questions" id="que1">
+            <p>The ideal governing system is...</p>
+            <select id="selector1">
+                <option selected="selected" value="0">[No opinion either way]</option>
+                <option value=-262.995>Anarchy: No government</option>
+                <option value=-175.33>Direct Democracy : All decisions are made through public vote</option>
+                <option value=-87.665>Representative Democracy: Decisions are made by executives who are elected by a public vote</option>
+                <option value=87.665>Weighted Democracy: Decisions are made by executives who are elected by a public vote, with vote power scaling with one's reputation, service, ownership, or education  </option>
+                <option value=175.33>Bureaucracy/Theocracy/Technocracy: Decisions are made by executives who are nominated by proffessional experts and elites</option>
+                <option value=262.995>Monarchy: Decisions are made by inheritors who are predetermined by will, bloodline, or algorithm</option>
+
+            </select>
+
+            <a href="thequizparttwo.html"><button id="submit">Submit</button></a>
+
+
+        </div>
+    </body>
+
+      <script>
+        window.onload = start;
+        document.getElementById("submit").onclick = ulclick;
+        document.getElementById("marxism").onclick = alertClick;
+
+
+
+
+
+        function start()
+        {
+            //This is where you call functions and put general document editing code.
+            //var select = document.getElementById("selector1");
+            //alert ( select.options[select.selectedIndex].value)
+
+            createPara("", "p1")
+        }
+
+        function alertClick()
+          {
+              alert("Communism in this context being the concept of a classless, stateless and moneyless society.")
+          }
+
+         function createPara(text, id)
+                //Very imporant function to reduce time wasted making paragraphs manually!
+            {
+                var para = document.createElement("p");
+                var t = document.createTextNode(text);
+                para.appendChild(t);
+                document.getElementById("main").appendChild(para);
+                para.id = id;
+            }
+
+        function ulclick()
+          {
+              var scoreGood = calculate();
+
+              sessionStorage.setItem('scoreGood', scoreGood)
+
+
+          }
+        function calculate()
+        {
+
+            var select = document.getElementById("selector1");
+
+           return parseFloat(select.options[select.selectedIndex].value);
+
+
+        };
+
+        //The rest of the functions go here
+    </script>
+    <script src="//static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(101050272); }catch(e){}</script>
+
+</html>
+
+<!-- I love IT! !-->
